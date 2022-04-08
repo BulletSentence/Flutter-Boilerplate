@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/views/home_view.dart';
+import 'main_app.dart';
 
 void main() {
-  runApp(const HomeView());
+  runApp(MeuAplicativo());
 }
