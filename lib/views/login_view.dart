@@ -64,110 +64,111 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 40),
-              const Image(
-                image: AssetImage('assets/mobile_login.png'),
-                height: 300,
-              ),
-              Center(
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+          body: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 40),
+                  const Image(
+                    image: AssetImage('assets/mobile_login.png'),
+                    height: 300,
                   ),
-                  color: secondaryColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Text(
-                            "Login to your account",
-                            textDirection: TextDirection.ltr,
-                            textAlign: TextAlign.center,
-                            style: primaryTextStyle,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Form(
-                          key: _formKey,
-                          child: Column(
-                            children: <Widget>[
-                              TextFormField(
-                                style: formStyle,
-                                keyboardType: TextInputType.emailAddress,
-                                controller: emailController,
-                                decoration: formStyleFunction("Email"),
-                                validator: (String? value) => validateEmail(
-                                  removeSpaces(value!),
-                                ),
+                  Center(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      color: secondaryColor,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Center(
+                              child: Text(
+                                "Login to your account",
+                                textDirection: TextDirection.ltr,
+                                textAlign: TextAlign.center,
+                                style: primaryTextStyle,
                               ),
-                              const SizedBox(height: 20),
-                              TextFormField(
-                                style: formStyle,
-                                keyboardType: TextInputType.text,
-                                controller: passController,
-                                decoration: formPasswordStyleFunction(
-                                    "Password", _passwordVisible, context, callback),
-                                obscureText: !_passwordVisible,
-                                validator: (String? value) {
-                                  if (value == null ||
-                                      value.isEmpty ||
-                                      removeSpaces(value).length < 8) {
-                                    return 'The password is too week';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16.0),
-                                child: ElevatedButton(
-                                  style: primaryButtonStyle,
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      login();
-                                    }
-                                  },
-                                  child: Text(
-                                    'Login on your account',
-                                    style: primaryTextStyle,
+                            ),
+                            const SizedBox(height: 20),
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                children: <Widget>[
+                                  TextFormField(
+                                    style: formStyle,
+                                    keyboardType: TextInputType.emailAddress,
+                                    controller: emailController,
+                                    decoration: formStyleFunction("Email"),
+                                    validator: (String? value) => validateEmail(
+                                      removeSpaces(value!),
+                                    ),
                                   ),
-                                ),
+                                  const SizedBox(height: 20),
+                                  TextFormField(
+                                    style: formStyle,
+                                    keyboardType: TextInputType.text,
+                                    controller: passController,
+                                    decoration: formPasswordStyleFunction(
+                                        "Password", _passwordVisible, context, callback),
+                                    obscureText: !_passwordVisible,
+                                    validator: (String? value) {
+                                      if (value == null ||
+                                          value.isEmpty ||
+                                          removeSpaces(value).length < 8) {
+                                        return 'The password is too week';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 16.0),
+                                    child: ElevatedButton(
+                                      style: primaryButtonStyle,
+                                      onPressed: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          login();
+                                        }
+                                      },
+                                      child: Text(
+                                        'Login on your account',
+                                        style: primaryTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text("Forgot Password?",
+                                  textDirection: TextDirection.ltr),
+                            ),
+                          ],
                         ),
-                        TextButton(
-                          onPressed: () {},
-                          child: const Text("Forgot Password?",
-                              textDirection: TextDirection.ltr),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    style: primaryButtonStyle,
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (BuildContext context) => const SignUpView()));
+                    },
+                    child: Text("Create Account",
+                        style: primaryTextStyle, textDirection: TextDirection.ltr),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                style: primaryButtonStyle,
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => const SignUpView()));
-                },
-                child: Text("Create Account",
-                    style: primaryTextStyle, textDirection: TextDirection.ltr),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+
     );
   }
 }

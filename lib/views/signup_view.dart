@@ -53,114 +53,116 @@ class _SignUpViewState extends State<SignUpView> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: primaryColor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 40),
-              const Image(
-                image: AssetImage('assets/mobile_login.png'),
-                height: 300,
-              ),
-              Center(
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  color: secondaryColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Text(
-                            "Create a new account",
-                            textDirection: TextDirection.ltr,
-                            textAlign: TextAlign.center,
-                            style: primaryTextStyle,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 40),
+                const Image(
+                  image: AssetImage('assets/mobile_login.png'),
+                  height: 300,
+                ),
+                Center(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    color: secondaryColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Center(
+                            child: Text(
+                              "Create a new account",
+                              textDirection: TextDirection.ltr,
+                              textAlign: TextAlign.center,
+                              style: primaryTextStyle,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 20),
-                        Form(
-                          key: _formKey,
-                          child: Column(
-                            children: <Widget>[
-                              TextFormField(
-                                style: formStyle,
-                                keyboardType: TextInputType.name,
-                                controller: nameController,
-                                decoration: formStyleFunction("Full Name"),
-                                validator: (String? value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 20),
-                              TextFormField(
-                                style: formStyle,
-                                keyboardType: TextInputType.emailAddress,
-                                controller: emailController,
-                                decoration: formStyleFunction("Your Email"),
-                                validator: (String? value) =>
-                                    validateEmail(removeSpaces(value!)),
-                              ),
-                              const SizedBox(height: 20),
-                              TextFormField(
-                                style: formStyle,
-                                keyboardType: TextInputType.text,
-                                controller: passController,
-                                decoration: formPasswordStyleFunction(
-                                    "Password", _passwordVisible, context, callback),
-                                obscureText: !_passwordVisible,
-                                validator: (String? value) {
-                                  if (value == null ||
-                                      value.isEmpty ||
-                                      removeSpaces(value).length < 8) {
-                                    return 'The password needs to be more secured';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16.0),
-                                child: ElevatedButton(
-                                  style: primaryButtonStyle,
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      register();
+                          const SizedBox(height: 20),
+                          Form(
+                            key: _formKey,
+                            child: Column(
+                              children: <Widget>[
+                                TextFormField(
+                                  style: formStyle,
+                                  keyboardType: TextInputType.name,
+                                  controller: nameController,
+                                  decoration: formStyleFunction("Full Name"),
+                                  validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter some text';
                                     }
+                                    return null;
                                   },
-                                  child: Text(
-                                    'Create Account!',
-                                    style: primaryTextStyle,
+                                ),
+                                const SizedBox(height: 20),
+                                TextFormField(
+                                  style: formStyle,
+                                  keyboardType: TextInputType.emailAddress,
+                                  controller: emailController,
+                                  decoration: formStyleFunction("Your Email"),
+                                  validator: (String? value) =>
+                                      validateEmail(removeSpaces(value!)),
+                                ),
+                                const SizedBox(height: 20),
+                                TextFormField(
+                                  style: formStyle,
+                                  keyboardType: TextInputType.text,
+                                  controller: passController,
+                                  decoration: formPasswordStyleFunction(
+                                      "Password", _passwordVisible, context, callback),
+                                  obscureText: !_passwordVisible,
+                                  validator: (String? value) {
+                                    if (value == null ||
+                                        value.isEmpty ||
+                                        removeSpaces(value).length < 8) {
+                                      return 'The password needs to be more secured';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16.0),
+                                  child: ElevatedButton(
+                                    style: primaryButtonStyle,
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        register();
+                                      }
+                                    },
+                                    child: Text(
+                                      'Create Account!',
+                                      style: primaryTextStyle,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                style: primaryButtonStyle,
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => const LoginView()));
-                },
-                child: Text("Login your Account",
-                    style: primaryTextStyle, textDirection: TextDirection.ltr),
-              ),
-            ],
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: primaryButtonStyle,
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => const LoginView()));
+                  },
+                  child: Text("Login your Account",
+                      style: primaryTextStyle, textDirection: TextDirection.ltr),
+                ),
+              ],
+            ),
           ),
         ),
       ),
