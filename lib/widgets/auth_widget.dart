@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectb/services/auth_service.dart';
 import 'package:projectb/views/home_view.dart';
-import 'package:projectb/views/login_view.dart';
+import 'package:projectb/views/auth_view.dart';
 import 'package:provider/provider.dart';
 
 class AuthCheck extends StatefulWidget {
@@ -18,7 +18,7 @@ class _AuthCheckState extends State<AuthCheck> {
     if (auth.isLoading) {
       return loading();
     } else if (auth.usuario == null) {
-      return const LoginView();
+      return const AuthView();
     } else {
       print("Usuario Logado: " + auth.usuario.toString());
       return const HomeView();
