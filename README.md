@@ -1,6 +1,6 @@
 # My Personal Flutter's Boilerplate
 
-* Copyright: [BulletSentence]
+* Copyright: [BulletSentence](https://github.com/BulletSentence/)
 
 <table border="0">
  <tr>
