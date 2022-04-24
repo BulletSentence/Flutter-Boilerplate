@@ -1,5 +1,6 @@
 # My Personal Flutter's Boilerplate
 
+* Status: Outdated 
 * Copyright: [BulletSentence](https://github.com/BulletSentence/)
 
 <table border="0">
