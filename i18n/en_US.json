@@ -1,0 +1,33 @@
+{
+  "auth-header-login" : "Hi! Log in to your account",
+  "auth-header-create" : "Create your account!",
+  "auth-full-name" : "Full Name",
+  "auth-hint-email": "Email",
+  "auth-hint-password": "Password",
+  "auth-btn-login" : "Login now!",
+  "auth-btn-sign-in" : "Create Account",
+  "auth-btn-login-step" : "I have an account",
+  "auth-forgot-pass" : "Forgot your password?",
+  "auth-btn-create-account" : "Create new account",
+
+  "alert-weak-pass" : "the password is too week",
+  "alert-invalid-email" : "Invalid Email",
+  "alert-email-existent" : "This email already exists",
+  "alert-email-not-found" : "Email not found, Join us!",
+  "alert-wrong-pass" : "Incorrect password, please try again",
+
+  "dialog-title-logout" : "You really want to Log out?",
+  "dialog-description-logout" : "After this, You'll need to login again to you the app",
+  "dialog-quit-account" : "Logout Account",
+
+  "welcome" : "Welcome",
+  "google-button-text" : "Google Log In",
+  "google-create-button-text" : "Google Sign In",
+  "logout-text" : "Logout",
+  "edit-profile-text" : "Edit Profile",
+  "settings-text" : "Settings",
+  "close-text" : "Close",
+  "open-text" : "Open",
+  "enter-text" : "Enter",
+  "app-title" : "Application"
+}

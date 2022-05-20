@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:projectb/services/auth_service.dart';
-import 'package:projectb/views/home_view.dart';
 import 'package:projectb/views/auth_view.dart';
 import 'package:provider/provider.dart';
+import '../views/home_view.dart';
+
 
 class AuthCheck extends StatefulWidget {
   const AuthCheck({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class _AuthCheckState extends State<AuthCheck> {
       return const AuthView();
     } else {
       print("Usuario Logado: " + auth.usuario.toString());
-      return const HomeView();
+      return HomeView();
     }
   }
 

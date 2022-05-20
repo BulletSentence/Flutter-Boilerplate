@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projectb/configs/buttons.dart';
-import 'package:projectb/configs/texts.dart';
+import 'package:projectb/config/app_theme.dart';
 import 'package:projectb/widgets/auth_widget.dart';
 import 'package:provider/provider.dart';
-import '../configs/colors.dart';
 import '../functions/remove_spaces.dart';
 import '../services/auth_service.dart';
+import '../shared/string_texts.dart';
 import '../widgets/loginform_widget.dart';
 import '../widgets/registerform_widget.dart';
 import '../widgets/snackbar_message.dart';
@@ -57,6 +56,17 @@ class _AuthViewState extends State<AuthView> {
     }
   }
 
+  googleLogin() async {
+    setState(() => loading = true);
+    try {
+      await context.read<AuthService>().signInwithGoogle();
+      setState(() => loading = false);
+    } on AuthException catch (e) {
+      setState(() => loading = false);
+      snackbarMessage(e.message, _scaffoldKey, context);
+    }
+  }
+
   @override
   void dispose() {
     emailController.dispose();
@@ -89,7 +99,7 @@ class _AuthViewState extends State<AuthView> {
             children: [
               const SizedBox(height: 40),
               const Image(
-                image: AssetImage('assets/mobile_login.png'),
+                image: AssetImage('assets/images/mobile_login.png'),
                 height: 300,
               ),
               Center(
@@ -103,7 +113,8 @@ class _AuthViewState extends State<AuthView> {
                         _passwordVisible,
                         loading,
                         callback,
-                        register)
+                        register,
+                        googleLogin)
                     : loginFormWidget(
                         context,
                         _formKey,
@@ -112,7 +123,8 @@ class _AuthViewState extends State<AuthView> {
                         _passwordVisible,
                         loading,
                         callback,
-                        login),
+                        login,
+                        googleLogin),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -125,10 +137,10 @@ class _AuthViewState extends State<AuthView> {
                   }
                 },
                 child: (isRegistering)
-                    ? Text("Login to your account",
+                    ? Text(btnLogin,
                         style: primaryTextStyle,
                         textDirection: TextDirection.ltr)
-                    : Text("Create new account",
+                    : Text(btnCreate,
                         style: primaryTextStyle,
                         textDirection: TextDirection.ltr),
               ),

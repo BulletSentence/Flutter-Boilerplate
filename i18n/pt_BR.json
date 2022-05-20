@@ -1,0 +1,33 @@
+{
+  "auth-header-login" : "Entre na sua conta",
+  "auth-header-create" : "Crie uma nova conta",
+  "auth-full-name" : "Nome Completo",
+  "auth-hint-email": "E-mail",
+  "auth-hint-password": "Senha",
+  "auth-btn-login" : "Entrar agora",
+  "auth-btn-sign-in" : "Criar conta agora",
+  "auth-btn-login-step" : "Eu já tenho conta",
+  "auth-forgot-pass" : "Esqueceu a senha?",
+  "auth-btn-create-account" : "Criar nova conta",
+
+  "alert-weak-pass" : "A senha é muito fraca",
+  "alert-invalid-email" : "E-mail invalido",
+  "alert-email-existent" : "Este E-mail já está cadastrado",
+  "alert-email-not-found" : "Email não encontrado, Cadastre-se!",
+  "alert-wrong-pass" : "Senha Incorreta, tente novamente",
+
+  "dialog-title-logout" : "Deseja Sair da sua conta?",
+  "dialog-description-logout" : "Você precisará entrar novamente para continuar usando o aplicativo",
+  "dialog-quit-account" : "Sair da conta",
+
+  "welcome" : "Bem-vindo",
+  "google-button-text" : "Entrar pelo Google",
+  "google-create-button-text" : "Criar pelo Google",
+  "logout-text" : "Deslogar",
+  "edit-profile-text" : "Editar Perfil",
+  "settings-text" : "Configurações",
+  "close-text" : "Fechar",
+  "open-text" : "Abrir",
+  "enter-text" : "Entrar",
+  "app-title" : "Aplicativo"
+}
